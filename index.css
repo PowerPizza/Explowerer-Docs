@@ -2,6 +2,7 @@ body{
     background-color: rgb(59, 57, 57);
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    word-wrap: break-word;
     &::-webkit-scrollbar{
         width: 5px;
     }

